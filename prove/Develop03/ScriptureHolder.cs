@@ -28,12 +28,11 @@ And it came to pass that when we had gone up to the land of Jerusalem, I and my 
         )
     };
 
-     public Scripture GiveScripture()
+    public Scripture GiveScripture()
     {
         int randomIndexElement = rnd.Next(_scriptureList.Count);
         return _scriptureList[randomIndexElement];
     }
-
 
     private static List<Word> ToWordsList(String verse) {
         return verse.Split(" ").ToList().Select(it => new Word(it)).ToList();

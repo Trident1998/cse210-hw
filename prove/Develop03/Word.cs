@@ -1,6 +1,6 @@
 class Word 
 {
-private String _word;
+    private String _word;
     private Boolean _isHiden = false;
     public Boolean IsHidden
     {

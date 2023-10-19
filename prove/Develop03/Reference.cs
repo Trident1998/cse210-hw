@@ -20,7 +20,6 @@ class Reference
         _endVerse = endVerse;
     }
 
-
     public String GetReference() 
     {
         if (_endVerse == 0) {

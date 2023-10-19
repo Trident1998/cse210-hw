@@ -19,7 +19,7 @@ class Scripture
 
     public String GetStringScripture()
     {
-        return $"{_referance.GetReference()} {ConcatinateWords()}";
+        return $"{_referance.GetReference()} \"{ConcatinateWords()}\"";
 
     }
 

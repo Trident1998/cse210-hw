@@ -4,8 +4,6 @@ class Program
 {
     static void Main(string[] args)
     {
-        Boolean isContinue = true;
-        Random random = new Random();
         Scripture scripture = new ScriptureHolder().GiveScripture();
         WordHandler wordHandler = new WordHandler();
         int amountOfHiding = 3;
@@ -15,7 +13,7 @@ class Program
         String userAmount = Console.ReadLine();
         amountOfHiding = int.Parse(userAmount);
 
-        while (isContinue) {
+        while (true) {
             Console.Clear();
 
             Console.WriteLine(scripture.GetStringScripture());
@@ -26,7 +24,7 @@ class Program
 
             if (answer == "quite" || hidenWordsCount == 0)
             {
-                isContinue = false;
+                break;
             } else
             {
                 wordHandler.HideWords(scripture.Words, amountOfHiding);
