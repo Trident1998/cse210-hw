@@ -1,0 +1,6 @@
+309
+SimpleGoal:simple,simple test,45,True
+EternalGoal:eternal,eternal test,55
+SimpleGoal:simple 1,simple test 1,33,True
+ChecklistGoal:checklist,checklist test,88,55,2,2
+SimpleGoal:eee,ee,1,False
