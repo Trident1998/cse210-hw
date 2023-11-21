@@ -1,8 +1,17 @@
+using System.Diagnostics;
+
 class Activity 
 {
     private String _name;
     private String _description;
     private int _seconds; 
+    private Stopwatch _sw = new Stopwatch();
+	private double lastFrame;
+
+    public Stopwatch Sw
+    {
+        get { return _sw; }
+    }
 
     public int Seconds
     {
@@ -81,4 +90,29 @@ class Activity
 
         } while (seconds > 0);
     }
+
+        protected void CountDownSeconds(int seconds, double passedTime, int endTime) {
+        do
+        {
+            passedTime += DeltaTime();
+
+            Console.Write(seconds);
+            Thread. Sleep (1000);
+            Console.Write ("\b \b");
+            seconds--;
+            
+        } while (seconds > 0 && passedTime < seconds * 1000);
+    }
+
+    protected double DeltaTime()
+	{
+		 TimeSpan ts = _sw.Elapsed;
+		 double firstFrame = ts.TotalMilliseconds;
+            
+		 double dt = firstFrame - lastFrame;
+           
+		 this.lastFrame = ts.TotalMilliseconds;
+
+		 return dt;
+	}
 }

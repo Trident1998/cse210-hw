@@ -29,20 +29,27 @@ class ListingActivity : Activity
         Console.WriteLine();
 
         ListResponses();
-        
     }
 
     private void ListResponses() 
     {
         DateTime startTime = DateTime.Now;
         DateTime endTime = startTime.AddSeconds(Seconds);
+        Console.Write("\n>");
 
         while (DateTime.Now < endTime) {
-            Console.Write(">");
-            Console.ReadLine();
-            Console.Write("");
-            itemsAmount++;
+			if (!Console.KeyAvailable)
+			{
+				continue;
+			}
+            ConsoleKeyInfo key = Console.ReadKey();
+
+        	if (key.Key == ConsoleKey.Enter)
+        	{
+                Console.Write("\n>");
+                itemsAmount++;
+            }
         }
-        Console.WriteLine($"You listed {itemsAmount}\n");
+        Console.WriteLine($"\nYou listed {itemsAmount}\n");
     }
 }
