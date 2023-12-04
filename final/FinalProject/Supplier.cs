@@ -43,4 +43,9 @@ class Supplier
 
         return new Supplier(country, email, phone, name);
     }
+
+    public String GetStringRepresentation()
+    {
+        return $"{_country},{_email},{_phone},{_name}";
+    }
 }

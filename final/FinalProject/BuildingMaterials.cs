@@ -8,12 +8,17 @@ class BuildingMaterial: Item
         _category = category;
     }
 
+        public BuildingMaterial(string name, string description, int quantity, int minAmount, int curentPtice, List<int> historyPrice, Supplier supplier, String category) 
+    : base(name, description, quantity, minAmount, curentPtice, historyPrice, supplier)
+    {
+        _category = category;
+    }
+
     public BuildingMaterial(): base() {}
 
 
     public override Item GetInstance()
     {
-        SupplierHendler _hendler = new SupplierHendler();
         int i = 1;
         String name = "";
         String description = "";
@@ -47,7 +52,12 @@ class BuildingMaterial: Item
 
     public override String DisplayFullInformation()
     {
-        return $"Food Item name: {Name}, decriptin: {Description}, Quantity in the Stock: {Quantity}, Min Amount in thee stock {MinAmount}," + 
+        return $"BuildingMaterial Item name: {Name}, decriptin: {Description}, Quantity in the Stock: {Quantity}, Min Amount in thee stock {MinAmount}," + 
         $"Price {CurentPtice}, Category {_category}, Supplier info {Supplier.DisplayInformation()}";
+    }
+
+    public override string GetStringRepresentation()
+    {
+        return $"BuildingMaterialItem:{Name},{Description},{Quantity},{MinAmount},{CurentPtice},{toStringHistoryPrice(PriceHistory)},{_category}|{Supplier}";
     }
 }

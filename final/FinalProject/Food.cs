@@ -8,11 +8,16 @@ class Food : Item
         _bestBefore = bestBefore;
     }
 
+    public Food(string name, string description, int quantity, int minAmount, int curentPtice, List<int> historyPrice, Supplier supplier, String bestBefore) 
+    : base(name, description, quantity, minAmount, curentPtice, historyPrice, supplier)
+    {
+        _bestBefore = bestBefore;
+    }
+
     public Food(): base() {}
 
     public override Item GetInstance()
     {
-        SupplierHendler _hendler = new SupplierHendler();
         int i = 1;
         String name = "";
         String description = "";
@@ -48,5 +53,10 @@ class Food : Item
     {
         return $"Food Item name: {Name}, decriptin: {Description}, Quantity in the Stock: {Quantity}, Min Amount in thee stock {MinAmount}," + 
         $"Price {CurentPtice}, Exp date {_bestBefore}, Supplier info {Supplier.DisplayInformation()}";
+    }
+
+    public override string GetStringRepresentation()
+    {
+        return $"FoodItem:{Name},{Description},{Quantity},{MinAmount},{CurentPtice},{toStringHistoryPrice(PriceHistory)},{_bestBefore}|{Supplier}";
     }
 }

@@ -16,6 +16,7 @@ abstract class Item
     public int MinAmount { get => _minAmount; set => _minAmount = value; }
     public int CurentPtice { get => _curentPtice; set => _curentPtice = value; }
     public Supplier Supplier { get => _supplier; set => _supplier = value; }
+    public List<int> PriceHistory { get => _priceHistory; set => _priceHistory = value; }
 
     public Item(String name,  String description, int quantity, int minAmount, int curentPtice, Supplier supplier)
     {
@@ -24,7 +25,18 @@ abstract class Item
         Quantity = quantity;
         MinAmount = minAmount;
         CurentPtice = curentPtice;
-        _priceHistory = new List<int> {curentPtice};
+        PriceHistory = new List<int> {curentPtice};
+        Supplier = supplier;
+    }
+
+        public Item(String name,  String description, int quantity, int minAmount, int curentPtice, List<int> historyPrice, Supplier supplier)
+    {
+        Name = name;
+        Description = description;
+        Quantity = quantity;
+        MinAmount = minAmount;
+        CurentPtice = curentPtice;
+        PriceHistory = historyPrice;
         Supplier = supplier;
     }
 
@@ -41,7 +53,7 @@ abstract class Item
 
     public void DisplayPriceHistory() {
         int i = 1;
-        _priceHistory.ForEach(it =>{
+        PriceHistory.ForEach(it =>{
             Console.WriteLine($"{i}. {it}");
             i++;
         });
@@ -49,10 +61,16 @@ abstract class Item
 
     public void ChangePrice(int newPrice) {
         CurentPtice = newPrice;
-        _priceHistory.Add(newPrice);
+        PriceHistory.Add(newPrice);
     }
 
     public abstract Item GetInstance();
     public abstract String DisplayFullInformation();
+    public abstract String GetStringRepresentation();
+
+    protected string toStringHistoryPrice(List<int> priceHistory)
+    {
+        return String.Join("_", priceHistory.ToArray());
+    }
 
 }

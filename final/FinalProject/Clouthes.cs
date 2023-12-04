@@ -10,11 +10,17 @@ class Clouthes : Item
         _gander = gander;
     }
 
+    public Clouthes(string name, string description, int quantity, int minAmount, int curentPtice, List<int> historyPrice, Supplier supplier,  String size, String gander) 
+    : base(name, description, quantity, minAmount, curentPtice, historyPrice, supplier)
+    {
+        _size = size;
+        _gander = gander;
+    }
+
     public Clouthes(): base() {}
 
     public override Item GetInstance()
     {
-        SupplierHendler _hendler = new SupplierHendler();
         int i = 1;
         String name = "";
         String description = "";
@@ -52,7 +58,12 @@ class Clouthes : Item
 
         public override String DisplayFullInformation()
     {
-        return $"Food Item name: {Name}, decriptin: {Description}, Quantity in the Stock: {Quantity}, Min Amount in thee stock {MinAmount}," + 
+        return $"Clouthes Item name: {Name}, decriptin: {Description}, Quantity in the Stock: {Quantity}, Min Amount in thee stock {MinAmount}," + 
         $"Price {CurentPtice}, Size {_size}, Gander {_gander}, Supplier info {Supplier.DisplayInformation()}";
+    }
+
+    public override string GetStringRepresentation()
+    {
+        return $"ClouthesItem:{Name},{Description},{Quantity},{MinAmount},{CurentPtice},{toStringHistoryPrice(PriceHistory)},{_size},{_gander}|{Supplier}";
     }
 }

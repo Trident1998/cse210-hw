@@ -5,7 +5,7 @@ class Program
     static void Main(string[] args)
     {
         Console.Clear();
-        SupplierHendler supplierHendler = new SupplierHendler();
+        ItemHendler supplierHendler = new ItemHendler();
         Inventory inventory = new Inventory();
         Report report = new Report();
         List<Item> items = new List<Item>();
@@ -20,8 +20,9 @@ class Program
             Console.WriteLine("  2. List Items");
             Console.WriteLine("  3. Update Item");
             Console.WriteLine("  4. Delete Item");
-            Console.WriteLine("  5. Record Event");
-            Console.WriteLine("  6. Quit");
+            Console.WriteLine("  5. Save to file");
+            Console.WriteLine("  6. Load from file");
+            Console.WriteLine("  7. Quit");
             Console.Write("Select a choice from the menu: ");
 
             choice = Console.ReadLine();
@@ -62,7 +63,7 @@ class Program
                         break;
                     }   
                 break;
-                
+
                 case "3":
                     Console.WriteLine("Choose Item:");
                     items.ForEach(it => {
@@ -87,6 +88,6 @@ class Program
                     Console.WriteLine("The Item is deleted!\n");
                 break;
             }
-        } while(choice != "6");   
+        } while(choice != "7");   
     }
 }
