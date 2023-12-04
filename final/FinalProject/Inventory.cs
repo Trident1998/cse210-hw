@@ -29,13 +29,31 @@ class Inventory
         return null;
     }
 
-    public void RemoveItem()
+    public static void UpdateItme(Item item)
     {
+        String choice = "";
+        Console.WriteLine("Choose the action:");
+        Console.WriteLine("  1. Update quantity");
+        Console.WriteLine("  2. Update price");
+        Console.WriteLine("  3. Show the price history");
+        Console.Write("Which type of action would you like to choose? ");
 
-    }
+        choice = Console.ReadLine();
 
-    public Item UpdateItme()
-    {
-        return new Food();
+        switch(choice) 
+        {
+            case "1":
+                item.Quantity = int.Parse(Console.ReadLine());
+            break;
+                
+            case "2":
+                int newPrice = int.Parse(Console.ReadLine());
+                item.ChangePrice(newPrice);
+            break;
+
+            case "3":
+                item.DisplayPriceHistory();
+            break;
+        }   
     }
 }

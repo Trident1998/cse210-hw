@@ -1,3 +1,5 @@
+using System.Reflection.Metadata;
+
 abstract class Item 
 {
     private String _name;
@@ -31,6 +33,23 @@ abstract class Item
     public String DisplayShortInformation()
     {
         return $"{this.GetType} Item name: {Name}, decriptin: {Description}, Quantity in the Stock: {Quantity}";
+    }
+
+    public void UpdateQuantity(int quantity, bool additionOperation) {
+        _quantity = additionOperation ? _quantity += quantity : _quantity -= quantity;
+    }
+
+    public void DisplayPriceHistory() {
+        int i = 1;
+        _priceHistory.ForEach(it =>{
+            Console.WriteLine($"{i}. {it}");
+            i++;
+        });
+    }
+
+    public void ChangePrice(int newPrice) {
+        CurentPtice = newPrice;
+        _priceHistory.Add(newPrice);
     }
 
     public abstract Item GetInstance();

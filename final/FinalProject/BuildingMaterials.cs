@@ -21,7 +21,6 @@ class BuildingMaterial: Item
         int minAmount = 0;
         int curentPtice = 0;
         String category = "";
-        Supplier supplier = new Supplier();
 
         Console.Write("What is the name of your item? ");
         name = Console.ReadLine();
@@ -38,14 +37,7 @@ class BuildingMaterial: Item
         Console.Write("What is the current price(UAH)? ");
         curentPtice = int.Parse(Console.ReadLine());
 
-        // Console.Write("What is the supplier number? ");
-        // List<Supplier> suppliers = _hendler.Load();
-        // suppliers.ForEach(it => {
-        //     Console.WriteLine($"{i}. {it.DisplayInformation()}");
-        //     i++;
-        // });
-        // int index = int.Parse(Console.ReadLine());
-        // supplier = suppliers[index];
+        Supplier supplier = Supplier.GetInstance();
 
         Console.Write("What is the category? ");
         category = Console.ReadLine();
@@ -56,6 +48,6 @@ class BuildingMaterial: Item
     public override String DisplayFullInformation()
     {
         return $"Food Item name: {Name}, decriptin: {Description}, Quantity in the Stock: {Quantity}, Min Amount in thee stock {MinAmount}," + 
-        $"Price {CurentPtice}, Supplier info {Supplier.DisplayInformation()}, Category {_category}";
+        $"Price {CurentPtice}, Category {_category}, Supplier info {Supplier.DisplayInformation()}";
     }
 }

@@ -62,6 +62,30 @@ class Program
                         break;
                     }   
                 break;
+                
+                case "3":
+                    Console.WriteLine("Choose Item:");
+                    items.ForEach(it => {
+                        Console.WriteLine($"{i}. {it.DisplayShortInformation()}");
+                        i++;
+                    });
+
+                    int indeex = int.Parse(Console.ReadLine()) - 1;
+                    item = items[indeex];
+                    Inventory.UpdateItme(item);
+                    Console.WriteLine("The Item is updated!\n");
+                break;
+
+                case "4":
+                    Console.WriteLine("Choose Item:");
+                    items.ForEach(it => {
+                        Console.WriteLine($"{i}. {it.DisplayShortInformation()}");
+                        i++;
+                    });
+                    indeex = int.Parse(Console.ReadLine()) - 1;
+                    items.RemoveAt(indeex);
+                    Console.WriteLine("The Item is deleted!\n");
+                break;
             }
         } while(choice != "6");   
     }

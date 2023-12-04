@@ -20,7 +20,6 @@ class Food : Item
         int minAmount = 0;
         int curentPtice = 0;
         String bestBefore = "";
-        Supplier supplier = new Supplier();
 
         Console.Write("What is the name of your item? ");
         name = Console.ReadLine();
@@ -37,14 +36,7 @@ class Food : Item
         Console.Write("What is the current price(UAH)? ");
         curentPtice = int.Parse(Console.ReadLine());
 
-        // Console.Write("What is the supplier number? ");
-        // List<Supplier> suppliers = _hendler.Load();
-        // suppliers.ForEach(it => {
-        //     Console.WriteLine($"{i}. {it.DisplayInformation()}");
-        //     i++;
-        // });
-        // int index = int.Parse(Console.ReadLine());
-        // supplier = suppliers[index];
+        Supplier supplier = Supplier.GetInstance();
 
         Console.Write("What is the best before date? ");
         bestBefore = Console.ReadLine();
@@ -55,6 +47,6 @@ class Food : Item
     public override String DisplayFullInformation()
     {
         return $"Food Item name: {Name}, decriptin: {Description}, Quantity in the Stock: {Quantity}, Min Amount in thee stock {MinAmount}," + 
-        $"Price {CurentPtice}, Supplier info {Supplier.DisplayInformation()}, Exp date {_bestBefore}";
+        $"Price {CurentPtice}, Exp date {_bestBefore}, Supplier info {Supplier.DisplayInformation()}";
     }
 }
