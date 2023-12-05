@@ -51,7 +51,6 @@ class Program
                                 Console.WriteLine($"{i}. {item.DisplayShortInformation()}");
                                 i++;
                             });
-                            Console.WriteLine();
                         break;
 
                         case "2":
@@ -59,9 +58,9 @@ class Program
                                 Console.WriteLine($"{i}. {item.DisplayFullInformation()}");
                                 i++;
                             });
-                            Console.WriteLine(); 
                         break;
                     }   
+                    Console.WriteLine(); 
                 break;
 
                 case "3":
@@ -78,17 +77,18 @@ class Program
                 break;
 
                 case "4":
-                    Console.WriteLine("Choose Item:");
                     items.ForEach(it => {
                         Console.WriteLine($"{i}. {it.DisplayShortInformation()}");
                         i++;
                     });
+                    Console.WriteLine("Choose Item from the list above:");
+
                     indeex = int.Parse(Console.ReadLine()) - 1;
                     items.RemoveAt(indeex);
                     Console.WriteLine("The Item is deleted!\n");
                 break;
                 case "5":
-                Console.Write("What is the file name for the goal file? ");
+                Console.Write("What is the file name for the item file? ");
                 String fileName = Console.ReadLine();
 
                 itemHendler.SaveFile(items, fileName);
@@ -96,7 +96,7 @@ class Program
                 break;
 
                 case "6":
-                Console.Write("What is the file name for the goal file? ");
+                Console.Write("What is the file name for the item file? ");
                 String loadFileName = Console.ReadLine();
                 
                 List<Item> loadedItems = itemHendler.LoadFile(loadFileName);

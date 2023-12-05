@@ -58,6 +58,7 @@ class Inventory
 
             case "3":
                 Console.Write("Thee price history is: ");
+                Console.Write("");
                 item.DisplayPriceHistory();
             break;
         }   
