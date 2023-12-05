@@ -5,7 +5,7 @@ class Program
     static void Main(string[] args)
     {
         Console.Clear();
-        ItemHendler supplierHendler = new ItemHendler();
+        ItemHendler itemHendler = new ItemHendler();
         Inventory inventory = new Inventory();
         Report report = new Report();
         List<Item> items = new List<Item>();
@@ -39,7 +39,7 @@ class Program
                     Console.WriteLine("What type of informatin would you like to see? ");
                     Console.WriteLine("  1. Short information");
                     Console.WriteLine("  2. Full information");
-                    Console.Write("Select a choice from the menu: ");
+                    Console.Write("Select an option from the menu: ");
 
                     choice = Console.ReadLine();
                     Console.WriteLine("The items are:");
@@ -86,6 +86,23 @@ class Program
                     indeex = int.Parse(Console.ReadLine()) - 1;
                     items.RemoveAt(indeex);
                     Console.WriteLine("The Item is deleted!\n");
+                break;
+                case "5":
+                Console.Write("What is the file name for the goal file? ");
+                String fileName = Console.ReadLine();
+
+                itemHendler.SaveFile(items, fileName);
+                Console.WriteLine();
+                break;
+
+                case "6":
+                Console.Write("What is the file name for the goal file? ");
+                String loadFileName = Console.ReadLine();
+                
+                List<Item> loadedItems = itemHendler.LoadFile(loadFileName);
+
+                items = loadedItems;
+                Console.WriteLine();
                 break;
             }
         } while(choice != "7");   

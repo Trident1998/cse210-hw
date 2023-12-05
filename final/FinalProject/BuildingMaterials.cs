@@ -53,11 +53,11 @@ class BuildingMaterial: Item
     public override String DisplayFullInformation()
     {
         return $"BuildingMaterial Item name: {Name}, decriptin: {Description}, Quantity in the Stock: {Quantity}, Min Amount in thee stock {MinAmount}," + 
-        $"Price {CurentPtice}, Category {_category}, Supplier info {Supplier.DisplayInformation()}";
+        $"Price {CurentPtice}, Category {_category}, Supplier info:\n{Supplier.DisplayInformation()}";
     }
 
     public override string GetStringRepresentation()
     {
-        return $"BuildingMaterialItem:{Name},{Description},{Quantity},{MinAmount},{CurentPtice},{toStringHistoryPrice(PriceHistory)},{_category}|{Supplier}";
+        return $"BuildingMaterialItem:{Name},{Description},{Quantity},{MinAmount},{CurentPtice},{toStringHistoryPrice(PriceHistory)},{_category}|{Supplier.GetStringRepresentation()}";
     }
 }

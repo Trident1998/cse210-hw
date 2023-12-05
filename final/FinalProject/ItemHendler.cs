@@ -10,10 +10,9 @@ class ItemHendler
         }
     }
 
-    public List<Supplier> LoadFile(String fileName)
+    public List<Item> LoadFile(String fileName)
     {
         List<String> lines = new List<String>(System.IO.File.ReadAllLines(fileName));
-        List<Supplier> suppliers = new List<Supplier>();
         List<Item> items = new List<Item>();
         Supplier supplier = null;
 
@@ -78,7 +77,7 @@ class ItemHendler
             }
         }    
 
-        return suppliers;
+        return items;
     }
 
 

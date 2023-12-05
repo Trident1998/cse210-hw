@@ -15,14 +15,17 @@ class Inventory
         {
             case "1":
             Item food = new Food().GetInstance();
+            Console.WriteLine("");
             return food;
 
             case "2":
             Item clouthes = new Clouthes().GetInstance();
+            Console.WriteLine("");
             return clouthes;
 
             case "3":
             Item material = new BuildingMaterial().GetInstance();
+            Console.WriteLine("");
             return material;
         }
 
@@ -43,15 +46,18 @@ class Inventory
         switch(choice) 
         {
             case "1":
+                Console.Write("Enter new quantity: ");
                 item.Quantity = int.Parse(Console.ReadLine());
             break;
                 
             case "2":
+                Console.Write("Enter new price: ");
                 int newPrice = int.Parse(Console.ReadLine());
                 item.ChangePrice(newPrice);
             break;
 
             case "3":
+                Console.Write("Thee price history is: ");
                 item.DisplayPriceHistory();
             break;
         }   

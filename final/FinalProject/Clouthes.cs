@@ -59,11 +59,11 @@ class Clouthes : Item
         public override String DisplayFullInformation()
     {
         return $"Clouthes Item name: {Name}, decriptin: {Description}, Quantity in the Stock: {Quantity}, Min Amount in thee stock {MinAmount}," + 
-        $"Price {CurentPtice}, Size {_size}, Gander {_gander}, Supplier info {Supplier.DisplayInformation()}";
+        $"Price {CurentPtice}, Size {_size}, Gander {_gander}, Supplier info:\n{Supplier.DisplayInformation()}";
     }
 
     public override string GetStringRepresentation()
     {
-        return $"ClouthesItem:{Name},{Description},{Quantity},{MinAmount},{CurentPtice},{toStringHistoryPrice(PriceHistory)},{_size},{_gander}|{Supplier}";
+        return $"ClouthesItem:{Name},{Description},{Quantity},{MinAmount},{CurentPtice},{toStringHistoryPrice(PriceHistory)},{_size},{_gander}|{Supplier.GetStringRepresentation()}";
     }
 }

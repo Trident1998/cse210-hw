@@ -44,7 +44,7 @@ abstract class Item
 
     public String DisplayShortInformation()
     {
-        return $"{this.GetType} Item name: {Name}, decriptin: {Description}, Quantity in the Stock: {Quantity}";
+        return $"{this.GetType()} Item name: {Name}, decriptin: {Description}, Quantity in the Stock: {Quantity}, Curent price: {CurentPtice}";
     }
 
     public void UpdateQuantity(int quantity, bool additionOperation) {

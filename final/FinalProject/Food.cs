@@ -52,11 +52,11 @@ class Food : Item
     public override String DisplayFullInformation()
     {
         return $"Food Item name: {Name}, decriptin: {Description}, Quantity in the Stock: {Quantity}, Min Amount in thee stock {MinAmount}," + 
-        $"Price {CurentPtice}, Exp date {_bestBefore}, Supplier info {Supplier.DisplayInformation()}";
+        $"Price {CurentPtice}, Exp date {_bestBefore}, Supplier info:\n{Supplier.DisplayInformation()}";
     }
 
     public override string GetStringRepresentation()
     {
-        return $"FoodItem:{Name},{Description},{Quantity},{MinAmount},{CurentPtice},{toStringHistoryPrice(PriceHistory)},{_bestBefore}|{Supplier}";
+        return $"FoodItem:{Name},{Description},{Quantity},{MinAmount},{CurentPtice},{toStringHistoryPrice(PriceHistory)},{_bestBefore}|{Supplier.GetStringRepresentation()}";
     }
 }
