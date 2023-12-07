@@ -1,0 +1,2 @@
+FoodItem:bread,for children,30,30,69,45_69,20-01-2012|Ukraine,@gamil.com,0756487,Ukr
+ClothesItem:hfjkhfg,kfjhgkfh,78,90,900,900,L,F|Turkey,Gmail,9588,juhu

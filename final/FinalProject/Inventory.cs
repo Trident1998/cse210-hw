@@ -5,7 +5,7 @@ class Inventory
         String choice = "";
         Console.WriteLine("The types of Items are:");
         Console.WriteLine("  1. Food");
-        Console.WriteLine("  2. Clouthes");
+        Console.WriteLine("  2. Clothes");
         Console.WriteLine("  3. Building Material");
         Console.Write("Which type of item would you like to create? ");
 
@@ -19,9 +19,9 @@ class Inventory
             return food;
 
             case "2":
-            Item clouthes = new Clouthes().GetInstance();
+            Item Clothes = new Clothes().GetInstance();
             Console.WriteLine("");
-            return clouthes;
+            return Clothes;
 
             case "3":
             Item material = new BuildingMaterial().GetInstance();

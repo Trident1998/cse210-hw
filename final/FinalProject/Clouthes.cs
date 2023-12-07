@@ -1,23 +1,23 @@
-class Clouthes : Item
+class Clothes : Item
 {
     private String _size;
     private String _gander;
 
-    public Clouthes(string name, string description, int quantity, int minAmount, int curentPtice, Supplier supplier, String size, String gander) 
+    public Clothes(string name, string description, int quantity, int minAmount, int curentPtice, Supplier supplier, String size, String gander) 
     : base(name, description, quantity, minAmount, curentPtice, supplier)
     {
         _size = size;
         _gander = gander;
     }
 
-    public Clouthes(string name, string description, int quantity, int minAmount, int curentPtice, List<int> historyPrice, Supplier supplier,  String size, String gander) 
+    public Clothes(string name, string description, int quantity, int minAmount, int curentPtice, List<int> historyPrice, Supplier supplier,  String size, String gander) 
     : base(name, description, quantity, minAmount, curentPtice, historyPrice, supplier)
     {
         _size = size;
         _gander = gander;
     }
 
-    public Clouthes(): base() {}
+    public Clothes(): base() {}
 
     public override Item GetInstance()
     {
@@ -53,17 +53,17 @@ class Clouthes : Item
         Console.Write("What is the gander? ");
         gander = Console.ReadLine();
 
-        return new Clouthes(name, description, quantity, minAmount, curentPtice, supplier, size, gander);
+        return new Clothes(name, description, quantity, minAmount, curentPtice, supplier, size, gander);
     }
 
         public override String DisplayFullInformation()
     {
-        return $"Clouthes Item name: {Name}, decriptin: {Description}, Quantity in the Stock: {Quantity}, Min Amount in thee stock {MinAmount}," + 
+        return $"Clothes Item name: {Name}, decription: {Description}, Quantity in the Stock: {Quantity}, Min Amount in thee stock {MinAmount}," + 
         $"Price {CurentPtice}, Size {_size}, Gander {_gander}, Supplier info:\n{Supplier.DisplayInformation()}";
     }
 
     public override string GetStringRepresentation()
     {
-        return $"ClouthesItem:{Name},{Description},{Quantity},{MinAmount},{CurentPtice},{toStringHistoryPrice(PriceHistory)},{_size},{_gander}|{Supplier.GetStringRepresentation()}";
+        return $"ClothesItem:{Name},{Description},{Quantity},{MinAmount},{CurentPtice},{toStringHistoryPrice(PriceHistory)},{_size},{_gander}|{Supplier.GetStringRepresentation()}";
     }
 }

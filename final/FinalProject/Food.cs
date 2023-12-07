@@ -18,7 +18,6 @@ class Food : Item
 
     public override Item GetInstance()
     {
-        int i = 1;
         String name = "";
         String description = "";
         int quantity = 0;
@@ -51,7 +50,7 @@ class Food : Item
 
     public override String DisplayFullInformation()
     {
-        return $"Food Item name: {Name}, decriptin: {Description}, Quantity in the Stock: {Quantity}, Min Amount in thee stock {MinAmount}," + 
+        return $"Food Item name: {Name}, decription: {Description}, Quantity in the Stock: {Quantity}, Min Amount in thee stock {MinAmount}," + 
         $"Price {CurentPtice}, Exp date {_bestBefore}, Supplier info:\n{Supplier.DisplayInformation()}";
     }
 

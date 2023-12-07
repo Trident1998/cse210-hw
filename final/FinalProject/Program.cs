@@ -69,6 +69,7 @@ class Program
                         Console.WriteLine($"{i}. {it.DisplayShortInformation()}");
                         i++;
                     });
+                    Console.WriteLine("What is your choose?");
 
                     int indeex = int.Parse(Console.ReadLine()) - 1;
                     item = items[indeex];

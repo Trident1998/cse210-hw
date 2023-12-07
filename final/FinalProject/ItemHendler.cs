@@ -42,7 +42,7 @@ class ItemHendler
                 items.Add(foodItem);
                 break;
 
-                case "ClouthesItem":
+                case "ClothesItem":
                 supplier = new Supplier(supplierInfo[0], supplierInfo[1], supplierInfo[2], supplierInfo[3]);
 
                 name = itemInfo[0];
@@ -55,8 +55,8 @@ class ItemHendler
                 string gander = itemInfo[7];
 
 
-                Clouthes clouthesItem = new Clouthes(name, description, quantity, minAmount, curentPtice, historyPrice, supplier, size, gander);
-                items.Add(clouthesItem);
+                Clothes ClothesItem = new Clothes(name, description, quantity, minAmount, curentPtice, historyPrice, supplier, size, gander);
+                items.Add(ClothesItem);
                 break;
 
                 case "BuildingMaterialItem":

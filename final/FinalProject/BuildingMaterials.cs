@@ -19,7 +19,6 @@ class BuildingMaterial: Item
 
     public override Item GetInstance()
     {
-        int i = 1;
         String name = "";
         String description = "";
         int quantity = 0;
@@ -52,7 +51,7 @@ class BuildingMaterial: Item
 
     public override String DisplayFullInformation()
     {
-        return $"BuildingMaterial Item name: {Name}, decriptin: {Description}, Quantity in the Stock: {Quantity}, Min Amount in thee stock {MinAmount}," + 
+        return $"BuildingMaterial Item name: {Name}, decription: {Description}, Quantity in the Stock: {Quantity}, Min Amount in thee stock {MinAmount}," + 
         $"Price {CurentPtice}, Category {_category}, Supplier info:\n{Supplier.DisplayInformation()}";
     }
 

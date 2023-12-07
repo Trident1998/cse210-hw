@@ -29,7 +29,7 @@ abstract class Item
         Supplier = supplier;
     }
 
-        public Item(String name,  String description, int quantity, int minAmount, int curentPtice, List<int> historyPrice, Supplier supplier)
+    public Item(String name,  String description, int quantity, int minAmount, int curentPtice, List<int> historyPrice, Supplier supplier)
     {
         Name = name;
         Description = description;
@@ -44,7 +44,7 @@ abstract class Item
 
     public String DisplayShortInformation()
     {
-        return $"{this.GetType()} Item name: {Name}, decriptin: {Description}, Quantity in the Stock: {Quantity}, Curent price: {CurentPtice}";
+        return $"{this.GetType()} Item name: {Name}, decription: {Description}, Quantity in the Stock: {Quantity}, Curent price: {CurentPtice}";
     }
 
     public void UpdateQuantity(int quantity, bool additionOperation) {
@@ -72,5 +72,4 @@ abstract class Item
     {
         return String.Join("_", priceHistory.ToArray());
     }
-
 }
